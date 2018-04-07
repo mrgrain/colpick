@@ -489,6 +489,7 @@
                 });
             },
             destroy: function () {
+                hide.apply(this);
                 $('#' + $(this).data('colpickId')).remove();
             }
         };
