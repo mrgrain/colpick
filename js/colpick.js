@@ -262,8 +262,9 @@
                 var left = pos.left;
                 var viewPort = getViewport();
                 var calW = cal.width();
-                if (left + calW > viewPort.l + viewPort.w) {
-                    left -= calW;
+                var right = left + calW;
+                if (right > viewPort.w) {
+                    left = (viewPort.w-calW) / 2;
                 }
                 cal.css({left: left + 'px', top: top + 'px'});
                 if (cal.data('colpick').onShow.apply(this, [cal.get(0)]) != false) {
