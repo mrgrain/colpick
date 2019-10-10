@@ -269,6 +269,8 @@
                 cal.css({left: left + 'px', top: top + 'px'});
                 if (cal.data('colpick').onShow.apply(this, [cal.get(0)]) != false) {
                     cal.show();
+                    // Hide the keyboard on mobile devices by deselecting the text box
+                    $(document.activeElement).filter(':input:focus').blur();
                 }
                 //Hide when user clicks outside
                 $('html').mousedown({cal: cal}, hide);
