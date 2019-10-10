@@ -262,14 +262,19 @@
                 var left = pos.left;
                 var viewPort = getViewport();
                 var calW = cal.width();
+                var calH = cal.height();
+                var bottom = top + calH;
                 var right = left + calW;
                 if (right > viewPort.w) {
                     left = (viewPort.w-calW) / 2;
                 }
+                if (bottom > viewPort.l) {
+                    top -= (calH + this.offsetHeight);
+                }
                 cal.css({left: left + 'px', top: top + 'px'});
                 if (cal.data('colpick').onShow.apply(this, [cal.get(0)]) != false) {
                     cal.show();
-                    // Hide the keyboard on mobile devices by deselecting the text box
+                    // Hide the keyboard on mobile devices be deselecting the text box
                     $(document.activeElement).filter(':input:focus').blur();
                 }
                 //Hide when user clicks outside
