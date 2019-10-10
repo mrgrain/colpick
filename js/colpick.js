@@ -288,7 +288,7 @@
             getViewport = function () {
                 var m = document.compatMode == 'CSS1Compat';
                 return {
-                    l: window.pageXOffset || (m ? document.documentElement.scrollLeft : document.body.scrollLeft),
+                    l: window.innerHeight || (m ? document.documentElement.scrollLeft : document.body.scrollLeft),
                     w: window.innerWidth || (m ? document.documentElement.clientWidth : document.body.clientWidth)
                 };
             },
